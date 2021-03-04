@@ -1,0 +1,28 @@
+<div class="p-4 w-75 m-auto">
+    <input type="text" [(ngModel)]='term' class="form-control bg-transparent" name="" id="">
+</div>
+
+<div class="row py-5">
+
+    <div class="col-md-4 py-3">
+
+        <div class="brdr w-25 mb-3"></div>
+
+            <h3 class="pt-2">Trending <br/> Tv <br/> To Watch Righ Now</h3>
+            <p class="secondFontColor py-2">most watched movies by days</p>
+
+            <div class="brdr w-100 mt-3"></div>
+
+    </div>
+
+    <div *ngFor="let tv of trendingTv |search:term" class="col-md-2 py-3">
+        <div [routerLink]="['/tvdetails' , tv?.id]" class="movie">
+
+            <img class="w-100" [src]="imgPrefix+tv?.poster_path" alt="">
+            <h4 class="my-2 h5">{{tv?.name}}</h4>
+
+            <div class="vote position-absolute">{{tv?.vote_average}}</div>
+        </div>
+
+    </div>
+</div>
